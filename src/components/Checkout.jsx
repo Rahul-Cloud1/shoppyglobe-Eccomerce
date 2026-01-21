@@ -26,11 +26,12 @@ function Checkout() {
   };
 
   if (orderPlaced) {
-    return <div className="checkout-page"><h2>Order placed</h2><p>Redirecting to Home...</p></div>;
+    return <div className="checkout-page"><span className="checkout-badge">✔ Checkout</span><h2>Order placed</h2><p>Redirecting to Home...</p></div>;
   }
 
   return (
     <div className="checkout-page">
+      <span className="checkout-badge">✔ Checkout</span>
       <h2>Checkout</h2>
       <form onSubmit={handleSubmit} style={{ maxWidth: 400 }}>
         <input

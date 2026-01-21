@@ -10,6 +10,7 @@ function Cart() {
 
   return (
     <div className="cart-page">
+      <span className="cart-badge">🛒 Cart</span>
       <h2>Your Cart</h2>
       {items.length === 0 ? (
         <p>Your cart is empty.</p>

@@ -17,13 +17,6 @@ function ProductList() {
   return (
     <div className="product-list-page">
       <h2>Products</h2>
-      <input
-        type="text"
-        placeholder="Search products..."
-        value={search}
-        onChange={e => dispatch(setSearch(e.target.value))}
-        style={{ marginBottom: 16, padding: 8, width: '100%' }}
-      />
       {loading && <p>Loading...</p>}
       {error && <p style={{ color: 'red' }}>{error}</p>}
       <div className="product-list">

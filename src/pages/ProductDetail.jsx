@@ -9,6 +9,7 @@ function ProductDetail() {
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [added, setAdded] = useState(false);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -24,6 +25,7 @@ function ProductDetail() {
         setError(err.message);
       } finally {
         setLoading(false);
+        setAdded(false); // Reset added state when product changes
       }
     };
     fetchProduct();
@@ -33,13 +35,24 @@ function ProductDetail() {
   if (error) return <div className="product-detail-page"><p style={{ color: 'red' }}>{error}</p></div>;
   if (!product) return null;
 
+  const handleAddToCart = () => {
+    dispatch(addToCart(product));
+    setAdded(true);
+    setTimeout(() => setAdded(false), 1500);
+  };
   return (
-    <div className="product-detail-page">
-      <h2>{product.title}</h2>
-      <img src={product.thumbnail} alt={product.title} style={{ width: 240, height: 240, objectFit: 'cover', borderRadius: 8 }} loading="lazy" />
-      <p>{product.description}</p>
-      <p>Price: ${product.price}</p>
-      <button onClick={() => dispatch(addToCart(product))}>Add to Cart</button>
+    <div className="product-detail-page animated-detail">
+      <div className="detail-img-wrap">
+        <img src={product.thumbnail} alt={product.title} className="detail-img" loading="lazy" />
+        <span className="detail-price-badge">${product.price}</span>
+      </div>
+      <div className="detail-info">
+        <h2>{product.title}</h2>
+        <p className="detail-desc">{product.description}</p>
+        <button className={`add-to-cart-btn${added ? ' added' : ''}`} onClick={handleAddToCart} disabled={added}>
+          {added ? '✔ Added' : 'Add to Cart'}
+        </button>
+      </div>
     </div>
   );
 }

@@ -17,6 +17,8 @@ function ProductItem({ product }) {
 
   return (
     <div className="product-item">
+      {/* Example badge for new products (could be dynamic) */}
+      {product.isNew && <span className="product-badge">New</span>}
       <Link to={`/product/${product.id}`} style={{ textDecoration: 'none', color: 'inherit' }}>
         <img
           src={product.thumbnail}
@@ -24,15 +26,16 @@ function ProductItem({ product }) {
           loading="lazy"
           style={{ width: 180, height: 180, objectFit: 'cover', borderRadius: 8 }}
         />
-        <h3>{product.title}</h3>
-        <p>${product.price}</p>
+        <h3 className="product-title">{product.title}</h3>
+        <p className="product-price">${product.price}</p>
       </Link>
       <button
         onClick={handleAddToCart}
+        className={`add-to-cart-btn${added ? ' added' : ''}`}
         style={{ marginTop: 8 }}
         disabled={added}
       >
-        {added ? 'Added' : 'Add to Cart'}
+        {added ? '✔ Added' : 'Add to Cart'}
       </button>
     </div>
   );
