@@ -1,20 +1,40 @@
-<<<<<<< HEAD
-# shoppyglobe-Eccomerce
-=======
-# React + Vite
+# ShoppyGlobe E-commerce
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**ShoppyGlobe** is a basic e-commerce web app built with **React 18** and **Vite**.  
+It includes product listing, product details, cart management, checkout, Redux state management, and dynamic routing.
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ GitHub Repository
+[https://github.com/Rahul-Cloud1/shoppyglobe-Eccomerce](https://github.com/Rahul-Cloud1/shoppyglobe-Eccomerce)
 
-## React Compiler
+Features
+ Browse products fetched from [DummyJSON API](https://dummyjson.com/products)
+Search and filter products
+View product details
+Add/remove products to/from cart
+Update quantities (min 1) and view cart summary
+Checkout form with "Place Order" button
+404 page for unknown routes
+Redux for state management
+Lazy loading for components and images
+Responsive UI
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Technologies
+React 18, Vite, Redux Toolkit, React Router v6, Axios, CSS
 
-## Expanding the ESLint configuration
+ Structure
+ src/
+├── components/ # Header, ProductList, ProductItem, Cart, CartItem, Checkout, NotFound
+├── pages/ # ProductDetail
+├── redux/ # store.js, cartSlice.js
+├── hooks/ # useFetchProducts.js
+├── styles/ # main.css
+├── App.jsx
+└── index.jsx
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
->>>>>>> master
+Installation & Running
+
+git clone https://github.com/Rahul-Cloud1/shoppyglobe-Eccomerce.git
+cd shoppyglobe-Eccomerce
+npm install
+npm run dev
